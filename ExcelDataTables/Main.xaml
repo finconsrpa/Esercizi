@@ -25,7 +25,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="15">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -41,6 +41,9 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap:VirtualizedContainerService.HintSize="254,143" sap2010:WorkflowViewState.IdRef="Sequence_11">
@@ -55,20 +58,20 @@
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
           <av:Size x:Key="ShapeSize">60,75</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,237</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">330,40 380,40</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
-        <x:Reference>__ReferenceID0</x:Reference>
+        <x:Reference>__ReferenceID1</x:Reference>
       </Flowchart.StartNode>
       <FlowStep>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">42,127</av:Point>
+            <av:Point x:Key="ShapeLocation">32,97</av:Point>
             <av:Size x:Key="ShapeSize">216,66</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Parta A" sap:VirtualizedContainerService.HintSize="216,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <Sequence DisplayName="Part A" sap:VirtualizedContainerService.HintSize="216,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -161,7 +164,7 @@
       <FlowStep>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">362,117</av:Point>
+            <av:Point x:Key="ShapeLocation">42,197</av:Point>
             <av:Size x:Key="ShapeSize">216,66</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -238,11 +241,12 @@
       <FlowStep x:Name="__ReferenceID0">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">192,237</av:Point>
+            <av:Point x:Key="ShapeLocation">42,297</av:Point>
             <av:Size x:Key="ShapeSize">216,66</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">150,297 150,297</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Part C" sap:VirtualizedContainerService.HintSize="468,284" sap2010:WorkflowViewState.IdRef="Sequence_13">
+        <Sequence DisplayName="Part C" sap:VirtualizedContainerService.HintSize="885,579" sap2010:WorkflowViewState.IdRef="Sequence_13">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -284,6 +288,62 @@
               </ActivityAction>
             </ui:ExcelApplicationScope.Body>
           </ui:ExcelApplicationScope>
+        </Sequence>
+        <FlowStep.Next>
+          <x:Reference>__ReferenceID0</x:Reference>
+        </FlowStep.Next>
+      </FlowStep>
+      <FlowStep x:Name="__ReferenceID1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">380,7</av:Point>
+            <av:Size x:Key="ShapeSize">216,66</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Sequence sap:VirtualizedContainerService.HintSize="216,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <While sap:VirtualizedContainerService.HintSize="781,740" sap2010:WorkflowViewState.IdRef="While_1">
+            <While.Variables>
+              <Variable x:TypeArguments="x:Int32" Default="1" Name="index" />
+              <Variable x:TypeArguments="x:Int32" Default="3" Name="n" />
+              <Variable x:TypeArguments="sd:DataTable" Name="partialTable" />
+            </While.Variables>
+            <While.Condition>[index &lt;= n]</While.Condition>
+            <Sequence sap:VirtualizedContainerService.HintSize="739,582" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ReadRange AddHeaders="True" DataTable="[partialTable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="701,87" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[&quot;Sheet&quot;+index.ToString]" WorkbookPath="C:\Users\davide.leone\Documents\RPA\Lezioni\Esercizi\Lesson 9 - Excel &amp; Data Tables\Lesson 9 Practice 2 - Consolidate Table - Resource\Consolidate.xlsx">
+                <ui:ReadRange.Range>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </ui:ReadRange.Range>
+              </ui:ReadRange>
+              <If Condition="[index = 1]" sap:VirtualizedContainerService.HintSize="701,263" sap2010:WorkflowViewState.IdRef="If_1">
+                <If.Then>
+                  <ui:WriteRange AddHeaders="False" DataTable="[partialTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="330,115" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Sheet1" StartingCell="A1" WorkbookPath="C:\Users\davide.leone\Documents\RPA\Lezioni\Esercizi\Lesson 9 - Excel &amp; Data Tables\Lesson 9 Practice 2 - Consolidate Table - Resource\Consolidated.xlsx" />
+                </If.Then>
+                <If.Else>
+                  <ui:AppendRange DataTable="[partialTable]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="330,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Sheet1" WorkbookPath="C:\Users\davide.leone\Documents\RPA\Lezioni\Esercizi\Lesson 9 - Excel &amp; Data Tables\Lesson 9 Practice 2 - Consolidate Table - Resource\Consolidated.xlsx" />
+                </If.Else>
+              </If>
+              <Assign sap:VirtualizedContainerService.HintSize="701,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[index]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">[index + 1]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </While>
         </Sequence>
       </FlowStep>
     </Flowchart>
