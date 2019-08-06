@@ -53,7 +53,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadPDFText Text="{x:Null}" DisplayName="Read PDF Text" FileName="Data\Perfect Match.pdf" sap:VirtualizedContainerService.HintSize="754,59" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" />
+    <ui:ReadPDFText Text="{x:Null}" DisplayName="Private: Read PDF Text" FileName="Data\Perfect Match.pdf" sap:VirtualizedContainerService.HintSize="754,59" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="1" />
     <ui:AnchorBase AnchorPosition="Left" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="754,198" sap2010:WorkflowViewState.IdRef="AnchorBase_1">
       <ui:AnchorBase.Action>
         <ActivityAction x:TypeArguments="ui:Anchor">
